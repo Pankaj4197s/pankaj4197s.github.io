@@ -1,24 +1,27 @@
 import { motion } from "framer-motion";
 import React from "react";
 import ArrowIcon from "../Icons/ArrowIcon";
-import AgriLife from "./Descriptions/AgriLife";
 import FRI from "./Descriptions/FRI";
-import HPEIntern from "./Descriptions/HPEIntern";
 import Humsafar from "./Descriptions/Humsafar";
 import JPMCJob from "./Descriptions/JPMCJob";
+import JPMCJobI from "./Descriptions/JPMCJobI";
+import JPMCJobII from "./Descriptions/JPMCJobII";
 import Retailio from "./Descriptions/Retailio";
+import UCRStudentAssistant from "./Descriptions/UCRStudentAssistant";
 export default function WhereIHaveWorked() {
-  const barRef = React.useRef<HTMLDivElement>(null);
-  // ? INFORMATIONAL control the green position using px,
+  React.useRef<HTMLDivElement>(null);
+// ? INFORMATIONAL control the green position using px,
   // ? INFORMATIONAL the default value of barRef's class should be at the beginning translate-y-[0px]
   const GetDescription = () => {
     switch (DescriptionJob) {
-      case "HPEIntern":
-        return <HPEIntern />;
-      case "AgriLife":
-        return <AgriLife />;
+      case "UCR":
+        return <UCRStudentAssistant />;
       case "JPMCJob":
         return <JPMCJob />;
+      case "JPMCJobI":
+        return <JPMCJobI />;
+      case "JPMCJobII":
+        return <JPMCJobII />;
       case "Humsafar":
         return <Humsafar />;
       case "Retailio":
@@ -27,7 +30,7 @@ export default function WhereIHaveWorked() {
         return <FRI />;
     }
   };
-  const [DescriptionJob, setDescriptionJob] = React.useState("HPEIntern");
+  const [DescriptionJob, setDescriptionJob] = React.useState("UCR");
   return (
     <div
       data-aos="fade-up"
@@ -65,36 +68,39 @@ export default function WhereIHaveWorked() {
 }
 
 const CompaniesBar = (props: any) => {
-  const [barPosition, setBarPosition] = React.useState<number>(-26); // Green bar position by the default it's -20px
+  const [barPosition, setBarPosition] = React.useState<number>(0);
   const [barAbovePosition, setBarAbovePosition] = React.useState<number>(0);
-  const [companyNameBackgroundColorGreen, setCompanyNameBackgroundColorGreen] =
-    React.useState<boolean[]>([true, false, false, false]);
-  const CompanyButton = (props: any) => {
-    return (
-      <button
-        onClick={() => {
-          setBarPosition(props.BarPosition);
-          setBarAbovePosition(props.BarAvobePosition);
-          props.setDescriptionJob(props.DescriptionJob);
-          setCompanyNameBackgroundColorGreen(
-            props.CompanyNameBackgroundColorGreen
-          );
-        }}
-        className={`flex-none sm:text-sm text-xs text-center md:text-left  hover:text-AAsecondary
-             hover:bg-ResumeButtonHover rounded  font-mono  
-             py-3 md:pl-6 md:px-4 md:w-44 w-32 duration-500
-             ${
-               companyNameBackgroundColorGreen[
-                 props.ButtonOrderOfcompanyNameBackgroundColorGreen
-               ]
-                 ? "bg-ResumeButtonHover text-AAsecondary"
-                 : "text-gray-500"
-             }`}
-      >
-        {props.CompanyName}
-      </button>
-    );
-  };
+  const [activeIndex, setActiveIndex] = React.useState<number>(0);
+  const barHolderRef = React.useRef<HTMLDivElement>(null);
+  const indicatorRef = React.useRef<HTMLDivElement>(null);
+  const buttonRefs = React.useRef<(HTMLButtonElement | null)[]>([]);
+
+  const companies: Array<{ name: string; key: string }> = [
+    { name: "UCR CS Dept – Student Assistant", key: "UCR" },
+    { name: "JP Morgan Chase & Co. — Software Engineer II", key: "JPMCJobII" },
+    { name: "JP Morgan Chase & Co. — Software Engineer I", key: "JPMCJobI" },
+    { name: "The Humsafar Trust", key: "Humsafar" },
+    { name: "Retailio", key: "Retailio" },
+    { name: "Forest Research Department, Government of Rajasthan", key: "FRI" },
+  ];
+
+  React.useLayoutEffect(() => {
+    const holder = barHolderRef.current;
+    const indicator = indicatorRef.current;
+    const btn = buttonRefs.current[activeIndex];
+    if (!holder || !indicator || !btn) return;
+    const holderRect = holder.getBoundingClientRect();
+    const btnRect = btn.getBoundingClientRect();
+    const indicatorHeight = indicator.getBoundingClientRect().height || 0;
+    const y =
+      btnRect.top +
+      btnRect.height / 2 -
+      holderRect.top -
+      indicatorHeight / 2;
+    setBarPosition(y);
+    // Mobile horizontal underline segment (approximate, matches previous 128px steps)
+    setBarAbovePosition(activeIndex * 128 + 1);
+  }, [activeIndex]);
 
   return (
     <div
@@ -105,6 +111,7 @@ const CompaniesBar = (props: any) => {
     >
       {/* // ? left bar Holder */}
       <div
+        ref={barHolderRef}
         className=" hidden md:block bg-gray-500 relative h-0.5 w-34 md:h-80 translate-y-1 md:w-0.5  
         rounded md:order-1 order-2  "
       >
@@ -112,66 +119,29 @@ const CompaniesBar = (props: any) => {
         <motion.div
           animate={{ y: barPosition }}
           // ref={barRef}
+          ref={indicatorRef}
           className={`absolute w-10 h-0.5 md:w-0.5 md:h-16 rounded bg-AAsecondary `}
         ></motion.div>
       </div>
       {/* // ? Companies name as buttons */}
       <div className="flex flex-col md:order-2 order-1 space-y-1 pl-8 md:pl-0 ">
         <div className="flex flex-row md:flex-col">
-          {/*<CompanyButton*/}
-          {/*  ButtonOrderOfcompanyNameBackgroundColorGreen={0}*/}
-          {/*  CompanyName="Hewlette Packard Enterprise"*/}
-          {/*  BarPosition={-26}*/}
-          {/*  BarAvobePosition={1}*/}
-          {/*  DescriptionJob="HPEIntern"*/}
-          {/*  CompanyNameBackgroundColorGreen={[true, false, false, false, false]}*/}
-          {/*  setDescriptionJob={props.setDescriptionJob}*/}
-          {/*/>*/}
-          {/*<CompanyButton*/}
-          {/*  ButtonOrderOfcompanyNameBackgroundColorGreen={1}*/}
-          {/*  CompanyName="AgriLife, Texas A&M University"*/}
-          {/*  BarPosition={38}*/}
-          {/*  BarAvobePosition={129}*/}
-          {/*  DescriptionJob="AgriLife"*/}
-          {/*  CompanyNameBackgroundColorGreen={[false, true, false, false, false]}*/}
-          {/*  setDescriptionJob={props.setDescriptionJob}*/}
-          {/*/>*/}
-          <CompanyButton
-            ButtonOrderOfcompanyNameBackgroundColorGreen={2}
-            CompanyName="JP Morgan Chase @ Fulltime"
-            BarPosition={-26}
-            BarAvobePosition={1}
-            DescriptionJob="JPMCJob"
-            CompanyNameBackgroundColorGreen={[true, false, false, false]}
-            setDescriptionJob={props.setDescriptionJob}
-          />
-          <CompanyButton
-            ButtonOrderOfcompanyNameBackgroundColorGreen={3}
-            CompanyName="The Humsafar Trust"
-            BarPosition={38}
-            BarAvobePosition={129}
-            DescriptionJob="Humsafar"
-            CompanyNameBackgroundColorGreen={[false, true, false, false]}
-            setDescriptionJob={props.setDescriptionJob}
-          />
-          <CompanyButton
-            ButtonOrderOfcompanyNameBackgroundColorGreen={4}
-            CompanyName="Retailio"
-            BarPosition={102}
-            BarAvobePosition={257}
-            DescriptionJob="Retailio"
-            CompanyNameBackgroundColorGreen={[false, false, true, false]}
-            setDescriptionJob={props.setDescriptionJob}
-          />
-          <CompanyButton
-            ButtonOrderOfcompanyNameBackgroundColorGreen={5}
-            CompanyName="Forest Research Department, Government of Rajasthan"
-            BarPosition={221}
-            BarAvobePosition={513}
-            DescriptionJob="FRI"
-            CompanyNameBackgroundColorGreen={[false, false, false, true]}
-            setDescriptionJob={props.setDescriptionJob}
-          />
+          {companies.map((c, i) => (
+            <button
+              key={c.key}
+              ref={(el) => (buttonRefs.current[i] = el)}
+              onClick={() => {
+                setActiveIndex(i);
+                props.setDescriptionJob(c.key);
+              }}
+              className={`flex-none sm:text-sm text-xs text-center md:text-left  hover:text-AAsecondary
+             hover:bg-ResumeButtonHover rounded  font-mono  
+             py-3 md:pl-6 md:px-4 md:w-44 w-32 duration-500
+             ${i === activeIndex ? "bg-ResumeButtonHover text-AAsecondary" : "text-gray-500"}`}
+            >
+              {c.name}
+            </button>
+          ))}
         </div>
         <div className="block md:hidden w-[760px] h-0.5 rounded bg-gray-500">
           <motion.div

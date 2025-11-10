@@ -1,7 +1,7 @@
 import ArrowIcon from "../../Icons/ArrowIcon";
 import { getTasksTextWithHighlightedKeyword } from "./taskAndType";
 
-export default function JPMCJob() {
+export default function JPMCJobII() {
   const tasks = [
     {
       text:
@@ -28,46 +28,22 @@ export default function JPMCJob() {
     {
       text:
         "Built Active Inventory Management (AIM) Cash Optimization on Signavio BDM for Cash and Portfolio Managers to actively manage residual cash before close of day.",
-      keywords: [
-        "AIM",
-        "Signavio BDM",
-        "Cash Optimization",
-        "residual cash",
-        "Portfolio Managers",
-      ],
-    },
-    {
-      text:
-        "Designed ReactJS frontend for AIM, enabling investment of $1.6B previously uninvested cash in 2022; total invested cash via AIM in 2022 was $188B.",
-      keywords: ["ReactJS", "$1.6B", "$188B", "AIM"],
-    },
-    {
-      text:
-        "Upgraded authentication and authorization across micro‑services to OAuth2.",
-      keywords: ["authentication", "authorization", "OAuth2", "micro‑services"],
-    },
-    {
-      text:
-        "Enhanced CI/CD pipelines to latest industry standards using Harness.",
-      keywords: ["CI/CD", "Harness", "pipelines"],
+      keywords: ["AIM", "Signavio BDM", "Cash Optimization", "residual cash"],
     },
   ];
   return (
     <>
       <div className="flex flex-col space-y-5 max-w-xl px-4 md:px-0">
         <div className="flex flex-col spacey-y-2">
-          {/* Title */}
           <span className="text-gray-100 sm:text-lg text-sm font-Arimo tracking-wide">
-            Software Engineer I/II{" "}
+            Software Engineer II{" "}
             <span className="text-AAsecondary">@ JP Morgan Chase &amp; Co.</span>
           </span>
-          {/* Date */}
           <span className="font-mono text-xs text-gray-500">
-            July 2019 - September 2024 | Mumbai, India
+            January 2022 - September 2024 | Mumbai, India
           </span>
         </div>
         <div className="flex flex-col space-y-4 sm:text-sm text-xs">
-          {/* Tasks Description 1 */}
           {tasks.map((item, index) => {
             return (
               <div key={index} className="flex flex-row space-x-2">
@@ -90,3 +66,4 @@ export default function JPMCJob() {
   );
 }
  
+

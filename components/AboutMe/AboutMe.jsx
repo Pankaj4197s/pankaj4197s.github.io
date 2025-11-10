@@ -6,7 +6,7 @@ import { devIcons } from "../Icons/dev-icons";
 import { ToolboxIcon } from "../Icons/icons";
 import { isMobile } from "react-device-detect";
 
-const AboutMe = (props) => {
+const AboutMe = () => {
   const iconGroups = devIcons.reduce((acc, curr, i) => {
     const index = Math.floor(i / 6);
     acc[index] = acc[index] ? [...acc[index], curr] : [curr];
@@ -51,25 +51,16 @@ const AboutMe = (props) => {
           <div className="w-full md:w-7/12 space-y-4 sm:text-base text-sm ">
             <div className="font-Header ">
               <span className="text-gray-400  tracking-wide">
-                Hi! My name is Pankaj Sharma and I'm currently pursuing{" "}
-                <span className="text-AAsecondary">Master's Degree</span>{" "} in {" "}
-                <span className="text-AAsecondary">Computer Science</span>{" "} at {" "}
-                <span className="text-AAsecondary">University of California</span>{" "} at Riverside. My coursework at University of California at Riverside includes Machine Learning, Design and Analysis of Algorithms, Cloud Computing, Artificial Intelligence, Data Mining and Spatial Computing. After completing my graduation, I worked with{" "}
-                 {/* and I'm currently
-                working as a {" "}
-                <span className="text-AAsecondary">Associate Software Engineer</span> at{" "}
-                <span className="text-AAsecondary">JP Morgan Chase and Co.</span> */}
-                 {/* at{" "} */}
-                {/* <span className="text-AAsecondary">Texas A&M University</span>. */}
-                {/* My coursework at Texas A&M University includes Machine Learning,
-                Analysis of Algorithms, Operating Systems, Information
-                Retrieval, Data Mining and Systematic Trading Strategies.  */}
-                <span className="text-AAsecondary">JP Morgan Chase & Co</span>{" "}
-                for 5 years as an{" "}
-                <span className="text-AAsecondary">
-                  Associate Software Developer
-                </span>{" "}
-                with Asset and Wealth Management line of business as a part of the Cash Management Application team developing trading software for Portfolio Managers and Cash Managers in the firm.
+                Hi! My name is Pankaj Sharma and I'm pursuing a{" "}
+                <span className="text-AAsecondary">Master's Degree</span> in{" "}
+                <span className="text-AAsecondary">Computer Science</span> at{" "}
+                <span className="text-AAsecondary">University of California, Riverside</span>{" "}
+                (2024–2026). I currently work as a{" "}
+                <span className="text-AAsecondary">Student Assistant / Full‑Stack Developer</span>{" "}
+                with the CS Department, modernizing the TA Assignment System to improve TA‑course matching and contract generation.{" "}
+                Previously, I spent{" "}
+                <span className="text-AAsecondary">5 years at JP Morgan Chase &amp; Co.</span>{" "}
+                as a Software Engineer in Asset &amp; Wealth Management, building trading and cash optimization systems used by Portfolio and Cash Managers.
               </span>
             </div>
             <div className="font-Header tracking-wide">
