@@ -9,10 +9,8 @@ import data from "../../data/portfolio.json";
 import { nameFormatter } from "../../utils";
 
 const ProjectComp = ({
-  key,
   img,
   name,
-  dates,
   description,
   tech,
   isLinks,
@@ -21,7 +19,6 @@ const ProjectComp = ({
   const router = useRouter();
   return (
     <Card
-      key={key}
       sx={{
         maxWidth: 250,
         margin: "16px",
@@ -46,8 +43,10 @@ const ProjectComp = ({
             className="flex flex-wrap w-full text-gray-500
                text-sm font-Text2"
           >
-            {tech.map((t) => (
-              <span className="pr-4 z-10">{t}</span>
+            {tech.map((t, idx) => (
+              <span key={`${name}-${t}-${idx}`} className="pr-4 z-10">
+                {t}
+              </span>
             ))}
           </ul>
         </CardContent>
@@ -107,7 +106,6 @@ const ProjectCard = () => {
               className="w-full sm:w-1/2 lg:w-1/3"
             >
               <ProjectComp
-                key={project.title.toLowerCase().split(" ").join("-")}
                 img={project.imageSrc}
                 name={project.title}
                 description={project.description}
