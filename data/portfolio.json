@@ -4,7 +4,7 @@
       "url": "/pankaj_resume.pdf"
     },
     "email": {
-      "url": "pankaj4197s@gmail.com"
+      "url": "pasha.sde@gmail.com"
     },
     "github": {
       "url": "Pankaj4197s"
@@ -17,6 +17,81 @@
     }
   },
   "projects": [
+    {
+      "title": "Machine Learning Framework for Computer Architecture Research",
+      "description": "Revamped an ML framework to predict CPU microarchitecture simulation outcomes; modernized code and documented workflows.",
+      "tech": ["Python", "PyTorch", "NumPy", "Pandas"],
+      "dates": {
+        "start": "Sep 2025",
+        "end": "Mar 2026"
+      },
+      "isLinks": false,
+      "links": {
+        "github": "",
+        "external": ""
+      },
+      "imageSrc": "/images/algorithms.jpeg"
+    },
+    {
+      "title": "Sensei Search (OpenAI CLIP)",
+      "description": "Multimodal search with CLIP embeddings + FAISS for fast image↔text retrieval; OOD detection and prompt optimization.",
+      "tech": ["Python", "PyTorch", "FAISS", "OpenAI CLIP"],
+      "dates": {
+        "start": "Apr 2025",
+        "end": "Jun 2025"
+      },
+      "isLinks": false,
+      "links": {
+        "github": "",
+        "external": ""
+      },
+      "imageSrc": "/images/data_mining.jpeg"
+    },
+    {
+      "title": "NeRF‑in‑the‑Wild: 3D Scene Reconstruction",
+      "description": "Replicated and optimized NeRF‑W; +35% training efficiency, improved stability and lighting generalization.",
+      "tech": ["Python", "PyTorch"],
+      "dates": {
+        "start": "Apr 2025",
+        "end": "Jun 2025"
+      },
+      "isLinks": false,
+      "links": {
+        "github": "",
+        "external": ""
+      },
+      "imageSrc": "/images/antenna.jpeg"
+    },
+    {
+      "title": "KNative Scaling Policy Analysis",
+      "description": "Benchmarked KNative autoscaling (CPU vs RPS) on Kubernetes with Prometheus/Grafana; compared latency and utilization.",
+      "tech": ["Kubernetes", "KNative", "Prometheus", "Grafana"],
+      "dates": {
+        "start": "Jan 2025",
+        "end": "Mar 2025"
+      },
+      "isLinks": false,
+      "links": {
+        "github": "",
+        "external": ""
+      },
+      "imageSrc": "/images/os_project.jpeg"
+    },
+    {
+      "title": "Pneumonia X‑Ray Classifier",
+      "description": "Transfer learning with ResNet, custom CNNs and Vision Transformers (ViT) for X‑ray classification.",
+      "tech": ["Python", "PyTorch", "ResNet", "ViT"],
+      "dates": {
+        "start": "Oct 2024",
+        "end": "Nov 2024"
+      },
+      "isLinks": false,
+      "links": {
+        "github": "",
+        "external": ""
+      },
+      "imageSrc": "/images/algorithms.jpeg"
+    },
     {
       "title": "Application of Index Calculus Method for breaking Cryptosystems",
       "description": "Cryptography",
@@ -94,6 +169,41 @@
     }
   ],
   "education": [
+    {
+      "id": 3,
+      "name": "University of California, Riverside",
+      "degree": "Master of Science in Computer Science",
+      "location": "Riverside, USA",
+      "dates": {
+        "start": "Sep 2024",
+        "end": "Mar 2026"
+      },
+      "courses": [
+        "GPU Architecture and Parallel Programming",
+        "Advanced Machine Learning",
+        "Advanced Computer Vision",
+        "Advanced Operating Systems",
+        "Advanced DBMS",
+        "Spatial Computing",
+        "Cloud Computing and Cloud Networking",
+        "Data Mining Techniques",
+        "Artificial Intelligence",
+        "Design and Analysis of Algorithms"
+      ],
+      "introduction": "Graduate student focused on Systems, ML, and Cloud."
+    },
+    {
+      "id": 4,
+      "name": "Birla Institute of Technology and Science, Pilani (Goa Campus)",
+      "degree": "Bachelor of Engineering (Hons.) in Electronics and Instrumentation",
+      "location": "Goa, India",
+      "dates": {
+        "start": "Aug 2015",
+        "end": "May 2019"
+      },
+      "courses": [],
+      "introduction": "Undergraduate focus on Electronics and Instrumentation."
+    },
     {
       "id": 1,
       "name": "Texas A&M University",
